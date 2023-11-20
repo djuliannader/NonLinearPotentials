@@ -25,5 +25,5 @@ Manifest.toml
 
 
 analysis.nb
-.jl~
-.dat~
+*.jl~
+*.dat~
