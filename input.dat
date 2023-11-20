@@ -1,0 +1,16 @@
+Dimension of the Fock space (Integer)
+100
+hbar (float)
+0.1
+Coeficients in front of the powers of x for the Potential (List[Float])
+[0,0.5]
+Coeficients in front of the powers of p in the Hamiltonian (List[Float])
+[0,0.5]
+Set minimimum and maximum x for phase space (List[Float])
+[-4.0,4.0]
+Set minimimum and maximum p for phase space (List[Float])
+[-4.0,4.0]
+Coordinates of the initial coherent state [x,p] (List[Float])
+[1.0,0.0]
+Time for screenshots of the phase space (List[Float])
+[0.0,0.5]

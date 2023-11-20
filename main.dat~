@@ -1,0 +1,34 @@
+push!(LOAD_PATH, pwd())
+import reading
+import diagonalize
+
+println("\r Non Linear Potentials 1D ")
+println("\r Diagonalization in the Fock Space")
+
+# Reading data from input file
+#------------------------------------
+open("input.dat") do f
+ K1=readline(f)
+ K2=readline(f)
+ K3=readline(f)
+ K4=readline(f)
+ K5=readline(f)
+ K6=readline(f)
+ K7=readline(f)
+ K8=readline(f)
+
+
+#------ converting string to a list
+ pcl = reading.stringtofloatlist(K6)
+ xcl = reading.stringtofloatlist(K8)
+
+#------ converting string to float or Integer
+ Nmax=parse(Float64,K2)   
+ hbar=parse(Float64,K4)   
+
+#------ calling method which perform diagonalization
+diag=diagonalize.diagonalization(xcl,pcl,Nmax,hbar)
+
+println("Ground state Energy:",diag[1])
+
+end # Final

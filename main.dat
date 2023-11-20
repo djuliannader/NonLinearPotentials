@@ -1,0 +1,51 @@
+push!(LOAD_PATH, pwd())
+import reading
+import diagonalize
+import dynamics
+
+println("\r Non Linear Potentials 1D ")
+println("\r Diagonalization in the Fock Space")
+
+# Reading data from input file
+#------------------------------------
+open("input.dat") do f
+ K1=readline(f)
+ K2=readline(f)
+ K3=readline(f)
+ K4=readline(f)
+ K5=readline(f)
+ K6=readline(f)
+ K7=readline(f)
+ K8=readline(f)
+ K9=readline(f)
+ K10=readline(f)
+ K11=readline(f)
+ K12=readline(f)
+ K13=readline(f)
+ K14=readline(f)
+ K15=readline(f)
+ K16=readline(f)
+
+
+#------ converting string to a list
+ xcl = reading.stringtofloatlist(K6)
+ pcl = reading.stringtofloatlist(K8)
+ xps = reading.stringtofloatlist(K10)
+ pps = reading.stringtofloatlist(K12)
+ xpi = reading.stringtofloatlist(K14)
+ ts  = reading.stringtofloatlist(K16)
+
+#------ converting string to float or Integer
+ Nmax=parse(Int64,K2)   
+ hbar=parse(Float64,K4)   
+
+#------ calling method which perform diagonalization
+diag=diagonalize.diagonalization(xcl,pcl,Nmax,hbar)
+
+println("Ground state Energy:",diag[1])
+
+#----- calling methods for the dynamics
+ics = dynamics.initialcoherent(xpi[1],xpi[2],hbar,Nmax)
+phasespace = dynamics.timeevolution(xcl,xps,pcl,pps,ics,ts,hbar,Nmax)
+
+end # Final
