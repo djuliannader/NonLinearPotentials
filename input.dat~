@@ -1,9 +1,0 @@
-Dimension of the Fock space (Integer)
-100
-hbar (float)
-1.0
-Coeficients in front of the momentum   (List[Float])
-[0,0.5]
-Coeficients in front of the potential (List[Float])
-[0,0.5]
-
