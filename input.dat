@@ -3,15 +3,27 @@ Dimension of the Fock space (Integer)
 hbar (float)
 0.1
 Coeficients in front of the powers of x for the Potential (List[Float])
-[0,0.5]
+[0,0,1,0.1]
 Coeficients in front of the powers of p in the Hamiltonian (List[Float])
 [0,0.5]
 Set minimimum and maximum x for phase space (List[Float])
 [-4.0,4.0]
 Set minimimum and maximum p for phase space (List[Float])
 [-4.0,4.0]
-Coordinates of the initial coherent state [x,p] (List[Float])
-[1.0,0.0]
 Time for screenshots of the phase space (List[Float])
-[0.0,0.5]
-Maximal time for survival probability
+[0.0,0.1,0.2,0.5,1.0,2.0]
+Maximal time for survival probability (Float)
+50.0
+1) for inital coherent state 2) for quantum quench (Int)
+2
+If initial coherent state choose initial coordinates [x,p] (List[Float])
+[0.0,0.0]
+If quantum quench chose coeficients in front of the powers of x for the inital Hamiltonian (List[Float])
+[0,0.5]
+If quantum quench chose coeficients in front of the powers of p for the inital Hamiltonian (List[Float])
+[0,0.5]
+If quantum quench chose the number of eigenstate which initiate the dynamics (Int)
+1
+
+
+
