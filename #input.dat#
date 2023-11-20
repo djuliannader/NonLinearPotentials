@@ -14,4 +14,5 @@ Coordinates of the initial coherent state [x,p] (List[Float])
 [1.0,0.0]
 Time for screenshots of the phase space (List[Float])
 [0.0,0.5]
-Maximal time for survival probability
+Maximal time for survival probability (Float)
+10.0

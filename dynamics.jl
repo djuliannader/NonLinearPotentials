@@ -4,7 +4,7 @@ using LinearAlgebra
 export initialcoherent
 export timeevolution
 #export fotoc
-#export SurvivalP
+#export survivalP
 
 function initialcoherent(xi::Float64,pi::Float64,hbar::Float64,Nmax::Int64)
 	 alabs=((xi^2+pi^2)*(1/(2*hbar)))^(1/2)
@@ -16,6 +16,31 @@ function initialcoherent(xi::Float64,pi::Float64,hbar::Float64,Nmax::Int64)
 	 return csf
 	 end
 
+#function survivalp(cx::Vector{Float64},cp::Vector{Float64},psi0::Vector{Complex{Float64}},tmax::Float64)
+#         dar=[0.0 for i in 1:Nmax]
+#	 d=[0.0 for i in 1:Nmax+1]
+#	 dab=[(i)^(1/2) for i in 1:Nmax]
+#	 a=Array(Tridiagonal(dar,d,dab))
+#	 ad=a'
+#	 xo=((10000/2.)^(1/2))*(a + ad);
+#	 po=-im*((10000/2.)^(1/2))*(a - ad)
+#	 H=sum(cx[i]*xo^(i) for i in 1:length(cx))+sum(cp[i]*po^(i) for i in 1:length(cp))
+#	 tint=tmax/0.1
+#	 nt=parse(Int64,tmax/0.1)
+#	 t=0.0
+#	 psi0a=Array{Complex{Float64}}(undef,1,Nmax+1) 
+#	 for k in 1:length(psi0)
+#	     psi0a[1,k]=conj(psi0[k])
+#        end
+#	 open("survivalprobability.dat","w") do io
+#	 for i in 1:nt+1
+#	     evol=exp(-im*H*t/10000)
+#	     sp=
+#	     sp=abs2(sp)
+#	     println(io,round(t,digits=16)," ",round(sp,digits=16))
+#	     t=t+tint
+#	     end
+#	  end
 
 function timeevolution(cx::Vector{Float64},xlim::Vector{Float64},cp::Vector{Float64},plim::Vector{Float64},psi0::Vector{Complex{Float64}},Tl::Vector{Float64},hbar::Float64,Nmax::Int64)
 	 dar=[0.0 for i in 1:Nmax]
@@ -35,7 +60,7 @@ function timeevolution(cx::Vector{Float64},xlim::Vector{Float64},cp::Vector{Floa
 	 intx=(xmax-xmin)/NN
 	 open("tevolution.dat","w") do io
 	 for t in Tl
-	   evol=exp(-im*H*t/10000)
+	   evol=exp(-im*H*t/hbar)
 	   x=xmin
 	   p=pmin
 	   for i in 1:NN+1
@@ -69,16 +94,5 @@ function timeevolution(cx::Vector{Float64},xlim::Vector{Float64},cp::Vector{Floa
 
 
 
-
-
-#csi=initialcoherent(0.5,0.0,0.1,50)
-#L1=[0,0.5]
-#L2=[0,0.5]
-#tlist=[0.0]
-#xlim=[-4.0,4.0]
-#plim=[-4.0,4.0]
-#Tlist=[0.0,10]
-#tt=timeevolution(L1,xlim,L2,plim,csi,Tlist,0.1,50)
-#println(tt)
 
 end
