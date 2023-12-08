@@ -27,3 +27,4 @@ Manifest.toml
 analysis.nb
 *.jl~
 *.dat~
+probabilities.jl
